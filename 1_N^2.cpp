@@ -1,0 +1,53 @@
+/*
+
+This problem was recently asked by Google.
+
+    Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
+
+    For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
+
+Bonus: Can you do this in one pass?
+
+*/
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int sizeofarray;
+    cin >> sizeofarray;
+    int a[sizeofarray];
+    for (int i = 0; i < sizeofarray; ++i)
+    {
+        cin >> a[i];
+    }
+    int k;
+    bool flag = 0;
+    cin >> k;
+    for (size_t i = 0; i < sizeofarray; i++)
+    {
+        for (size_t j = 0; j < sizeofarray; j++)
+        {
+            if (i != j)
+            {
+                if (a[i] + a[j] == k)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+        }
+    }
+    if (flag)
+    {
+        cout << "True" << endl;
+    }
+    else
+    {
+        cout << "False" << endl;
+    }
+}
